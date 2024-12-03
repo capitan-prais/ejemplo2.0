@@ -8,6 +8,15 @@
 </head>
 <body>
 
+
+  
+  <div class="buscador-container">
+    <input type="text" id="buscador" placeholder="Buscar película..." />
+</div>
+
+
+
+
   <div class="hero" id="Estrenos">
     <div class="todo">
         <h1 class="titulo">Estrenos</h1>
@@ -39,6 +48,8 @@
         </div>
     </div>
 </div>
+
+
 
 <div class="hero" id="Acción">
 	<div class="todo">
@@ -100,9 +111,26 @@
 						</div>
 						
 					</div>
+          <button id="prevButton" class="btn btn-anterior">&#10094;</button>
+          <button id="nextButton" class="btn btn-siguiente">&#10095;</button>
 		</div>	
 	</div>		
 </div>
+
+
+
+
+
+<div id="videoContainer">
+  <button id="closeVideoButton">X</button>
+  <video id="video" controls>
+      <source id="videoSource" type="video/mp4">
+      Tu navegador no soporta el formato de video.
+  </video>
+</div>
+
+
+
 
 <script src="funciones.js"></script>
 

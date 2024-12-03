@@ -4,6 +4,7 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; 
+  background: #333;
 }
 
 body {
@@ -11,15 +12,6 @@ body {
   background-image: url(imagenes/peliculas.jpg); 
 }
 
-header.menuprincipal {
-  width: 100%; /*ancho*/
-  height: 70px; /*alto*/
-  position: fixed;
-  z-index: 1;
-  border: 0px;
-  padding: 0px;
-  
-}
 
 .hero {
   display: flex;
@@ -95,4 +87,103 @@ header.menuprincipal {
 
 .btn:focus {
   outline: none;
+}
+
+/* Indicadores */
+.indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+  z-index: 10;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.indicator.active {
+  background-color: red;
+}
+
+.buscador-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+
+
+
+#buscador {
+  padding: 10px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#btnBuscar {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#btnBuscar:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+        /* Imagen del video */
+        #playImage {
+          cursor: pointer;
+          max-width: 100%;
+          height: auto;
+          margin-bottom: 20px;  /* Espacio entre la imagen y el video */
+      }
+
+      /* Contenedor del video: centrado con flexbox */
+      #videoContainer {
+          display: none;
+          width: 100%;
+          max-width: 640px;
+          margin: 0 auto;
+          text-align: center;
+          position: fixed; /* Asegura que se ubique por encima del contenido */
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%); /* Centrado exacto */
+          z-index: 10; /* Mayor que el carrusel */
+          background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro para el video */
+          padding: 10px;
+          border-radius: 10px;
+      }
+
+      #video {
+          width: 100%;
+          height: auto;
+          border-radius: 10px;
+      }
+/* Estilo para el botón de cerrar video */
+#closeVideoButton {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  font-size: 24px;
+  padding: 10px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  z-index: 2;
 }
