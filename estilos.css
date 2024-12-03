@@ -21,512 +21,78 @@ header.menuprincipal {
   
 }
 
-/*aqui editamos como queremos que sea el scroll al apretar el tipo de pelicula en el menu*/
-
-html{
-  scroll-behavior: smooth;
-}
-
-.espacio {
-  width: 100%; /*ancho*/
-  height: 90px; /*alto*/
-}
-
-/*empezamos a editar el menu parte superior....//////////////////////////////////////*/
-nav.menuprincipal {
-  width: 100%; /*ancho*/
-  height: 70px; /*alto*/
-  border: 0;
-  padding: 0px;
-  align-items: center;
-  background: linear-gradient(to right, #061161, #780206);
-  box-shadow: 50px 60px 17px -14px rgba(0,0,0,0.45);
-  display: flex;
-  justify-content: space-between;
-}
-
-/*aqui editamos el contenedor VIDEO del logo*/
-.ContenedorVideoLogo {
-  width: 70px; /*ancho*/
-  height: 70px; /*alto*/
-  /* margin: 10px; */
-  background:#000;
-}
-
-/*aqui editamos el VIDEO del logo*/
-.videoprincipal {
-  width: 60px; /*ancho*/
-  height: 60px; /*alto*/
-  margin: 5px 5px 5px 5px;
-  box-shadow: 0px 15px 30px 0 #000;
-  /*position: absolute;*/
-}
-
-/*aqui editamos el contenedor del video y logo de STRANG..*/
-.logo4 {
-  width: 110px; /*ancho*/
-  height: 70px; /*alto*/
-  margin: 0px auto 0px -2px;
-  position: relative;
-  cursor: pointer;
-  font-family: 'DRagonlord';
-}
-
-/* qui editamos el video de logo STRANSG */
-.video4 {
-  width: 130PX; /*ancho*/
-  height: 100%; /*alto*/
-  position: absolute; /*hace que todo el resto se coloque por encima de el*/
-  border-radius: 0px 0px 50px 0px; /*hace una curva a las esquinas*/
-}
-/* qui editamos la letra del logo */
-h4 {
-  width: 130px; /*ancho*/
-  height: 70px; /*alto*/
-  margin: 0px;
-  font-size: 70px;
-  border-radius: 0px 0px 50px 0px;
-  background: #000;
-  box-shadow: 3px 15px 30px 0 #000;
-  mix-blend-mode: multiply; /*combina el contenido de un elemento con el fondo y el elemento principal, fusiona capas superpuestas*/
-}
-
-
-
-/*aqui empezamos a editarlas el menu superior....//////////////////////////////////*/
-   
-.menu {
-  width: 70%; /*ancho*/
-  height: 100px; /*alto*/
-  display: flex; /*PARA DEJAR UNO DEBAJO DE OTRO*/
-  align-items: center;
-  text-align: center;
-  /*position: relative;*/
-}
-
-
-.menu-i {
-  width: 100px; /*ancho*/
-  height: 40px; /*alto*/
-  font-size: 14px;
-  border-radius: 2em;
-  border-width: 2px;
-  align-items: center;
-  cursor: pointer;
-  color: rgb(219, 218, 218);
-  border-style: solid;
-  background-color: transparent;
-  border-color: rgb(219, 218, 218);
-  line-height: 35px; /*subimos o bajamos la letra*/
-  transition: 0.2s ease;
-}
-
-/*cumple estos estilos al pasar el mause por encima*/
-.menu-i:hover {
-  width: 130px; /*ancho*/
-  height: 50px; /*alto*/
-  font-size: 14px;
-  text-align: center;
-  color: rgb(247, 247, 247);
-  background-color: rgb(0, 81, 255);
-  border-color: rgb(0, 81, 255);
-  text-shadow: 0 0 50px white, 0 0 20px white, 0 0 15px white;
-  box-shadow: 0 0 50px rgb(0, 81, 255), 0 0 30px rgb(0, 81, 255),
-    0 0 60px rgb(0, 81, 255), 0 0 120px rgb(0, 81, 255);
-  letter-spacing: 3px;
-}
-
-/*cumple estos estilos al precionar*/
-.menu-i:active {
-  width: 115px; /*ancho*/
-  height: 38px; /*alto*/
-  letter-spacing: 0px;
-}
-
-
-.menu-btn {
-  font-size: 50px;
-  cursor: pointer;
-  display: none; 
-}
-
-/*Aqui empezamos a editar el menu lateral..../////////////////////////////////////////*/
-
-@media screen and (max-width: 1150px) {
-  
-  .menu-btn {
-    display: block;
-    /* transition: all 10s ease;  */
-  }
-
-  .menu-btn img:hover {
-    filter: drop-shadow(1px 1px 10px  #fff);
-  }
-
-  .menu {
-    width: 40%; /*ancho*/
-    height: 75%; /*alto*/
-    padding: 15px;
-    z-index: 1;
-    position: fixed;
-    top: 70px;
-    left: 0px;
-    background: #780206;
-    background: -webkit-linear-gradient(to right, #061161, #780206);
-    background: linear-gradient(to right, #061161, #780206);
-    flex-direction: column;
-    line-height: 40px;
-    transition: all 0.5s ease;
-    transform: translateX(250%); 
-  }
-
-  /*separacion entre botnes del menu*/
-  .menu-i{
-    margin: 10px 0px 20px 20px;
-  }
-
-  .menu.active {
-    transform: translateX(150%); /*para activar nuestro menu lateral*/
-  }
-
-}
-
-/*aqui editamos el buscador ......////////////////////////////////////////////////////////////////*/
-
-.ContenedorBuscador {
-  width: 45%; /*ancho*/
-  height: 80px; /*alto*/
-  position: relative; 
-}
-
-.buscar {
-  position: absolute;
-  right: 5%;  /*mover a la derecha*/
-  bottom: 0%; /*mover hacia arriba*/
-  padding: 6px; 
-}
-/*modificamos el lado donde se escribe en buscar*/
-.ContenedorBuscador .buscar input {
-  width: 0px; 
-  height: 40px; 
-  font-size: 18px;
-  border-radius: 30px;
-  background: #000;
-  color: #fff;
-  outline: none;
-  transition: all 0.6s ease;
-  box-shadow: 0px 7px 20px 0 #ffad10; 
-}
-
-.ContenedorBuscador .buscar .btn {
-  width: 50px; /*ancho*/
-  height: 50px; /*alto*/
-  position: absolute;
-  text-align: center;
-  border-radius: 50%;
-  right: 0;
-  background: #ffad10;
-  line-height: 55px;
-  cursor: pointer; 
-  transition: all 2s ease;
-  box-shadow: 0px 0px 20px 9px #ffad10; 
-}
-
-.ContenedorBuscador .buscar .btn:hover {
-  transform: rotate(360deg);
-}
-
-/*saca el buscador al pasar el mause*/
-
-.ContenedorBuscador .buscar:hover input {
-  width: 280px; /*ancho*/
-  padding: 5px 3px 5px 20px;
-}
-
-/*aqui encontramos todo lo que esta dentro del carrusel*/
-
 .hero {
-  width: 100%; /*ancho*/
-  height: 600px; /*alto*/
-  /* margin:auto; pone un espacio por fuera */
-  position: relative; /*pone todo lo que esta dentro una encima de la otra*/
-  scroll-margin-top: 100px; /*este lo ocupamos para mover el contenido al apretar donde queremos ir, al apretar cualquier tipo de pelicula enlos botones del menu en la parte de arriba*/
-}
-
-@media screen and (max-width: 1150px){
-  .hero {
-    scroll-margin-top: 92px;
-  }
-}
-
-/*aqui vamos a editar el scroll de la pagina en este caso editaremos (.todo) hay estaran 3 codigos de animacion en la parte de abajo*/
-
-@keyframes scroll {
-  from {
-    opacity: 0;
-    scale: 0.5;
-  }
-  to {
-    opacity: 1;
-    scale: 1;
-  }
-}
-
-/*aqui encontramos todo lo que esta dentro del lado plomo del carrusel*/
-
-.todo {
-  width: 85%;
-  height: 530px;
-  padding: 0px auto;
-  margin: 0px auto;
-  text-align: center; 
-  border-radius: 20px;
-  background: #161f26db;
-  box-shadow: inset 0px -20px 19px -5px rgba(0,0,0,1); /*pone sombra interna en la parte de abajo*/
-
-  animation: scroll linear;
-  animation-timeline: view();
-  animation-range: entry 0 cover 40%;
-}
-
-.todo:active{
-  box-shadow: inset 0px -20px 19px -5px #fff;
-}
-
-@media screen and (max-width: 1150px){
-  .todo {
-    height: 100%;
-    margin: 25px auto;
-  }
-}
-
-/* titulo del genero de la pelicula del carrusel*/
-
-.titulo {
-  width: 25%; /*ancho*/
-  padding: 20px 0px 0px 0px; /*pone un espacio alrededor de lo que pusistes dentro*/
-  margin: 0px auto; /*pone un espacio por fuera o modificas en donde quieres que este ubicado el titulo como en este caso*/
-  font-size: 60px; /*tamaño de letra*/
-  text-align: center; /*centra el texto*/
-  font-family: 'DRagonlord'; /*estilo de letra*/
-  color: #fff; /*color de texto*/
-  justify-content: center;
-  background: #000;
-  border-radius: 80px 0px 80px 0px;
-  box-shadow: 0px 10px 16px -10px #fff;
-}
-
-@media screen and (max-width: 1150px){
-  .titulo{
-    width: 65%;
-    height: 13%;
-    padding: 5px 0px 0px 0px;
-  }
-}
-
-
-@media screen and (max-width: 1150px){
-
-  .carousel{
-    height: 520px;
-  }
-  .carousel .carousel-item{
-    width: 330px;
-    height: 520px;
-  }
-
-}
-
-.carousel .carousel-item img{
-  width: 250px; /*ancho*/
-  height: 360px; /*alto*/
-  /* align-items: center; */
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
-  user-select: none;
-  cursor: pointer; /*pone una manito al pasar el mause por encima*/
-  transition: none; /* Desactiva transiciones no deseadas */
+  width: 100%;
+  min-height: 100vh; /* Altura mínima del viewport */
+  padding: 20px;
+  background-color: #f4f4f4; /* Color de fondo neutro */
+  box-sizing: border-box;
+}
+.todo {
+  width: 100%;
+  max-width: 1200px; /* Define un ancho máximo para evitar que el contenido sea demasiado ancho */
+  margin: 0 auto; /* Centra el contenido horizontalmente */
+  text-align: center; /* Centra el texto */
 }
 
-.carousel-item img:hover {
-  filter: none; /* Evita filtros que puedan alterar el color */
+.titulo {
+  font-size: 2.5rem; /* Tamaño grande para destacar */
+  font-weight: bold; /* Hace el texto más llamativo */
+  color: #333; /* Color oscuro para contraste */
+  margin-bottom: 20px; /* Espaciado inferior para separar del carrusel */
+  text-transform: uppercase; /* Convierte el texto a mayúsculas */
+  letter-spacing: 2px; /* Espaciado entre letras para un toque moderno */
 }
 
-/*agrandar la imagen y que se posicione en el centro*/
-.carousel .carousel-item img:active{
- transform: scale(1.1); 
+.carousel-container {
+  position: relative;
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
 }
 
 .carousel {
-  position: relative;
-  scroll-behavior: smooth;
   display: flex;
-  overflow-x: auto;
+  transition: transform 0.5s ease;
+  will-change: transform;
 }
 
-.carousel .carousel-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.carousel-item {
+  min-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
 }
 
+.carousel-item img {
+  max-width: 100%;
+  height: auto;
+}
 
 .btn {
-  width: 50px;
-  height: 58px;
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  font-size: 1px;
-  border-radius: 5px;
-}
-
-/*este lo colocamos para que despues de apretar quede a este color el fondo ya que sin este quedaria en verde todo el rato.*/
-.btn:hover {
-  background-color: #0056b3;
-}
-/*este lo ocupamos para que al dar click en el boton cambie el tamaño y el color colo al dar click*/
-.btn:active {
-  width: 45px;
-  height: 50px;
-  background-color: #26a69a;
-}  
-
-.btn-siguiente {
   position: absolute;
   top: 50%;
-  right: 20px; /* Colocar el botón de siguiente a la derecha */
   transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
 }
 
 .btn-anterior {
-  position: absolute;
-  top: 50%;
-  left: 20px; /* Colocar el botón de anterior a la izquierda */
-  transform: translateY(-50%);
+  left: 10px;
 }
 
-.material-icons {
-  vertical-align: middle; /* Asegura que el icono esté centrado */
+.btn-siguiente {
+  right: 10px;
 }
 
-
-/*este efecto lo ocupamos para mostrar el titulo de la imagen al pasar el mause por la imagen, a la letra le colocamos (opacity 0)*/
-
-.carousel-item:hover .titulodepelicula {
-  opacity: 1;
+.btn:focus {
+  outline: none;
 }
-
-.imagenpeli {
-  position: absolute;
-  z-index: -1; /*lo ocupamos para que la imagen se vaya hacia atras de las letras*/
-  top: -80px; /*es para mover para arriba o para abajo la imagen*/
-  mask-image: linear-gradient(black 30%,transparent); /*pone transparente la parte de abajo de la imagen*/
-  transition: .4s ease; /*es el tiempo en que se va a demorar la animacion al pasar el mause por encima de la imagen*/
-  
-}
-
-.imagenpeli:hover {
-  filter: drop-shadow(0 -6mm 4mm hwb(0 97% 3%));/*esto es para poner sombra a las imagenes PNG*/
-}
-
-
-.titulodepelicula { 
-  width: 100%; /*ancho*/
-  margin: 180px 20px 0px 25px; /*movemos la posicion del titulo*/
-  font-size: 30px; /*tamaño de letra*/
-  background: rgba(0, 0, 0, 0.4);
-  min-height: 10px; /*espacio que ocupara arriba y abajo*/
-  border-radius: 60px/20px;
-  opacity:0;
-  transition: .5s ease;
-  font-weight: bold;
-}
-
-
- 
-
-.carousel .indicators .indicator-item {
-  width: 20px; /*ancho*/
-  height: 20px; /*alto*/
-  margin: 50px 40px 0px 20px;
-  border-radius: 10%;
-  background: red;
-  transform: rotate(50deg); /*para girar en grado en este los puntitos del carousel*/
-}
-
-@media (max-width: 1000px) {
-
-  .carousel .indicators .indicator-item {
-    width: 10px; /*ancho*/
-    height: 10px; /*alto*/
-    margin: 0px 5px 20px 20px;
-    /* border-radius: 10%; */
-    background: red;
-    transform: rotate(50deg); /*para girar en grado en este los puntitos del carousel*/
-  }
-  .indicators {
-    margin-top: 50px;
-    /* background: #000; */
-  }
-
-  .titulodepelicula{
-    width: 270px;
-    height: 100px;
-    margin: 330px 30px 30px 30px;
-    opacity: 1;
-  }
-
-  .carousel .carousel-item img{
-    width: 330px;
-    height: 522px;
-    margin: 80px 0px 0px 0px;
-    border-radius: 0px 0px 20px 20px;
-    filter: drop-shadow(0 -6mm 4mm hwb(0 97% 3%));
-  }
-
-}
-
-/* aqui modificamos el boton que nos dirige hacia arriba */
-
-.arriba {
-  display: none; /* Inicialmente no se muestra */
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-.arriba.show {
-  display: block; /* Aparece cuando se hace scroll hacia abajo */
-}
-
-.arriba img {
-  width: 55px; /* Ajusta el tamaño según sea necesario */
-}
-
-.arriba:active{
-  width: 50px;
-}
-
-.highlight {
-  border: 2px solid yellow;
-  box-shadow: 0 0 10px yellow;
-  transition: all 0.3s ease;
-}
- 
-.footer {
-  width: 100%; /*ancho*/
-  padding: 13px 0; 
-  text-align: center;
-  color: #fff;
-  background: #000;
-}
-
-
-
