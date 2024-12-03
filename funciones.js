@@ -32,11 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCarousel();
     };
 
-    // Desactivar interacción manual con el carrusel
-    carousel.addEventListener('touchstart', (e) => e.preventDefault());
-    carousel.addEventListener('mousedown', (e) => e.preventDefault());
-    carousel.addEventListener('wheel', (e) => e.preventDefault());
-
     // Asignar eventos a los botones
     nextButton.addEventListener('click', goToNext);
     prevButton.addEventListener('click', goToPrev);
