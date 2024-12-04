@@ -68,39 +68,118 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// aqui le daremos vida al buscador //////////////////////////////////////7
+
 document.addEventListener('DOMContentLoaded', () => {
     const carousels = document.querySelectorAll('.carousel');
     const searchInput = document.getElementById('buscador');
+    const mensajeError = document.getElementById('mensajeError');
+    const sugerencias = document.getElementById('sugerencias');
+    const spinner = document.getElementById('spinner');
+    const toggleThemeButton = document.getElementById('toggleTheme');
+    const noResultsDiv = document.getElementById('no-results'); // Nuevo contenedor
 
+    // Inicialmente ocultar mensaje de error
+    mensajeError.style.display = 'none';
+
+    // Mostrar sugerencias dinámicas
+    searchInput.addEventListener('input', () => {
+        const query = searchInput.value.trim().toLowerCase();
+        sugerencias.innerHTML = ''; // Limpia sugerencias previas
+
+        if (!query) {
+            sugerencias.style.display = 'none';
+            return;
+        }
+
+        let suggestionsFound = false;
+
+        carousels.forEach((carousel) => {
+            const items = carousel.querySelectorAll('.carousel-item');
+            items.forEach((item) => {
+                const titulo = item.querySelector('.titulodepelicula').textContent.toLowerCase();
+
+                if (titulo.includes(query)) {
+                    const li = document.createElement('li');
+                    li.textContent = titulo;
+                    li.addEventListener('click', () => {
+                        searchInput.value = titulo; // Autocompleta el buscador
+                        sugerencias.style.display = 'none';
+                        searchInput.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' })); // Ejecuta la búsqueda
+                    });
+                    sugerencias.appendChild(li);
+                    suggestionsFound = true;
+                }
+            });
+        });
+
+        sugerencias.style.display = suggestionsFound ? 'block' : 'none';
+    });
+
+    // Búsqueda al presionar Enter
     searchInput.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') { // Detectar la tecla Enter
-            const query = searchInput.value.toLowerCase();
+            const query = searchInput.value.trim().toLowerCase();
             let found = false;
 
-            carousels.forEach((carousel) => {
-                const items = carousel.querySelectorAll('.carousel-item');
-                items.forEach((item) => {
-                    const titulo = item.querySelector('.titulodepelicula').textContent.toLowerCase();
-
-                    if (titulo.includes(query)) {
-                        // Desplazar el carrusel al elemento encontrado
-                        items.forEach((itm) => itm.style.display = 'none'); // Ocultar todos los elementos
-                        item.style.display = 'block'; // Mostrar el elemento encontrado
-
-                        const carouselContainer = carousel.closest('.carousel-container');
-                        carouselContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-                        found = true;
-                    }
-                });
-            });
-
-            if (!found) {
-                alert('Película no encontrada');
+            if (!query) {
+                mensajeError.style.display = 'block';
+                mensajeError.classList.add('visible');
+                return;
+            } else {
+                mensajeError.style.display = 'none';
+                mensajeError.classList.remove('visible');
             }
+
+            spinner.style.display = 'block'; // Mostrar spinner
+
+            setTimeout(() => {
+                spinner.style.display = 'none'; // Ocultar spinner
+
+                carousels.forEach((carousel) => {
+                    const items = carousel.querySelectorAll('.carousel-item');
+                    items.forEach((item) => {
+                        const titulo = item.querySelector('.titulodepelicula').textContent.toLowerCase();
+
+                        if (titulo.includes(query)) {
+                            items.forEach((itm) => itm.style.display = 'none'); // Ocultar todos los elementos
+                            item.style.display = 'block'; // Mostrar el elemento encontrado
+
+                            const carouselContainer = carousel.closest('.carousel-container');
+                            carouselContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                            found = true;
+                        }
+                    });
+                });
+
+                if (!found) {
+                    noResultsDiv.innerHTML = `
+                        <p>No encontramos nada para "<b>${query}</b>". 😔</p>
+                        <img src="https://media.giphy.com/media/3o7aD6YtJa60Gheuca/giphy.gif" alt="No encontrado" />
+                    `;
+                    noResultsDiv.classList.remove('hidden');
+                    noResultsDiv.style.display = 'block';
+
+                    setTimeout(() => {
+                        noResultsDiv.style.display = 'none'; // Ocultar después de unos segundos
+                    }, 5000);
+                }
+            }, 1000); // Simula tiempo de carga
         }
     });
+
+    // Cambiar tema oscuro/claro
+    toggleThemeButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        toggleThemeButton.textContent = document.body.classList.contains('dark-mode')
+            ? 'Modo Claro'
+            : 'Modo Oscuro';
+    });
 });
+
+
+
 
 
 
