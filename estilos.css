@@ -203,7 +203,7 @@ body.dark-mode .sugerencias li:hover {
 
 .no-results {
   position: fixed;
-  top: 50%;
+  top: 13%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgba(0, 0, 0, 0.8);
@@ -218,7 +218,7 @@ body.dark-mode .sugerencias li:hover {
 
 .no-results img {
   margin-top: 10px;
-  width: 100px;
+  width: 250px;
   height: auto;
 }
 

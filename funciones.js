@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 1000); // Simula tiempo de carga
         }
     });
-
+    
     // Cambiar tema oscuro/claro
     toggleThemeButton.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
